@@ -4,7 +4,7 @@
  */
 package viewObat;
 
-import controllerObat.ControllerTambahObat;
+import controllerObat.ControllerObat;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,12 +17,13 @@ public class ViewTambahObat extends javax.swing.JFrame {
     /**
      * Creates new form ViewTambahObat
      */
-    private ControllerTambahObat CTO;
+    private ControllerObat CO;
+    
     public ViewTambahObat() {
         initComponents();
         setLocationRelativeTo(this);
         
-        CTO = new ControllerTambahObat(this);
+        CO = new ControllerObat(this, null);
     }
     
     public JTextField getTFIDObatt() {
@@ -176,7 +177,7 @@ public class ViewTambahObat extends javax.swing.JFrame {
 
     private void BtnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTambahActionPerformed
         // TODO add your handling code here:
-        CTO.tambah();
+        CO.tambah();
     }//GEN-LAST:event_BtnTambahActionPerformed
 
     private void BtnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBatalActionPerformed

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author M S I
  */
-public class ModelTambahObat {
+public class ModelObat {
     private int idObat;
     private String nama;
     private String jenis;
@@ -50,7 +50,7 @@ public class ModelTambahObat {
         return stok;
     }
 
-    public void setStok(int tahun) {
+    public void setStok(int stok) {
         this.stok = stok;
     }
 
@@ -76,5 +76,15 @@ public class ModelTambahObat {
             JOptionPane.showMessageDialog(null, "Data Obat Gagal Ditambah \n" + ex);
         }
     }
+    public void hapusDataObat(int id_obat) {
+        String sql = "DELETE FROM obat WHERE id_obat = ?";
 
+        try (PreparedStatement eksekusi = connect.getConnection().prepareStatement(sql)) {
+            eksekusi.setInt(1, id_obat);
+            eksekusi.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Data Obat Berhasil Dihapus");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Data Obat Gagal Dihapus \n" + ex);
+        }
+    }
 }
